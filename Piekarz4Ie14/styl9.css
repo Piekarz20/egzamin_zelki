@@ -6,6 +6,8 @@ header {
   text-align: center;
   width: 50%;
   height: 180px;
+  overflow: hidden;
+  float: left;
 }
 section,
 footer {
@@ -23,6 +25,8 @@ main {
   color: #fff;
   width: 50%;
   height: 400px;
+  overflow: hidden;
+  float: left;
 }
 #gora {
   display: flex;
@@ -46,9 +50,11 @@ footer {
 
 #zamowienie {
   display: block;
-  background-image: url(img/img/cukierki1.png);
+  background-image: url(img/cukierki1.png);
   padding-right: 70px;
-  padding-bottom: 120px;
+  padding-bottom: 150px;
   font-size: 150%;
   font-style: none;
+  background-position: center;
+  background-repeat: no-repeat;
 }

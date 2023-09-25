@@ -13,37 +13,86 @@
         /></a>
       </header>
       <header>
-        <a href="zamowienie.html" class="zamowienie"><p>Zamówienie</p> </a>
+        <a href="zamowienie.html" id="zamowienie"><p>Zamówienie</p> </a>
       </header>
     </div>
     <section><h2>Zamów nasz produkt</h2></section>
-    <main>
-      <h1>Oferta</h1>
-      <table>
-        <tr>
-          <td>Kształty</td>
-          <td>Kolory</td>
-        </tr>
-        <tr>
-          <td>
-            <ol>
-              <li>miś</li>
-              <li>żabka</li>
-              <li>serce</li>
-            </ol>
-          </td>
-          <td>
-            <ol>
-              <li>czerwony</li>
-              <li>niebieski</li>
-              <li>żółty</li>
-              <li>inny</li>
-            </ol>
-          </td>
-        </tr>
-      </table>
-    </main>
-    <main></main>
-    <footer></footer>
+    <div class="glowne">
+      <main>
+        <h1>Oferta</h1>
+        <table>
+          <tr>
+            <td>Kształty</td>
+            <td>Kolory</td>
+          </tr>
+          <tr>
+            <td>
+              <ol>
+                <li>miś</li>
+                <li>żabka</li>
+                <li>serce</li>
+              </ol>
+            </td>
+            <td>
+              <ol>
+                <li>czerwony</li>
+                <li>niebieski</li>
+                <li>żółty</li>
+                <li>inny</li>
+              </ol>
+            </td>
+          </tr>
+        </table>
+      </main>
+      <main>
+        <form action="#">
+          <label for="shapeNumber"
+            >Podaj numer kształtu<input
+              type="number"
+              name="shapeNumber"
+              id="shapeNumber"
+          /></label>
+          <p>skomponuj swój kolor, podaj RGB:</p>
+          <input type="number" name="R" id="R" />
+          <input type="number" name="G" id="G" />
+          <input type="number" name="B" id="B" />
+          <button id="submit">Zamów</button>
+        </form>
+        <p id="displayShape">Wybrany kształt</p>
+        <button id="color">Wybrany kolor</button>
+        <p id="error"></p>
+      </main>
+    </div>
+    <footer><p>Autor strony:0000000000</p></footer>
+    <script>
+      const submit = document.querySelector("#submit");
+      const color = document.querySelector("#color");
+      const shapes = ["miś", "żabka", "serce", "inny"];
+      const displayShape = document.querySelector("#displayShape");
+      const error = document.querySelector("#error");
+      submit.addEventListener("click", (evt) => {
+        evt.preventDefault();
+
+        const shape = document.querySelector("#shapeNumber").value;
+        const R = document.querySelector("#R").value;
+        const G = document.querySelector("#G").value;
+        const B = document.querySelector("#B").value;
+        if (shape == 1) {
+          displayShape.textContent = `Zamówiłeś żelka: ${shapes[shape - 1]}`;
+        } else if (shape == 2) {
+          displayShape.textContent = `Zamówiłeś żelka: ${shapes[shape - 1]}`;
+        } else if (shape == 3) {
+          displayShape.textContent = `Zamówiłeś żelka: ${shapes[shape - 1]}`;
+        } else {
+          displayShape.textContent = `Zamówiłeś żelka: ${shapes[3]}`;
+        }
+
+        if (R > 255 || R < 0 || G > 255 || G < 0 || B > 255 || B < 0) {
+          error.textContent = "Podaj prawidłową wartość kolorów";
+        } else {
+          color.style.backgroundColor = `rgb(${R}, ${G}, ${B})`;
+        }
+      });
+    </script>
   </body>
 </html>
